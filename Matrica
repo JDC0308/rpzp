@@ -1,0 +1,22 @@
+import random
+
+r = 5
+s= 3
+matrica = []
+
+for i in range(r):
+    red = []
+    for j in range(s):
+        broj = random.randint(1, 9)
+        red.append(broj)
+    matrica.append(red)
+for i in range(r):
+    for j in range(s):
+        print(matrica[i][j], end=' ')
+    print()
+zbroj = 0
+for i in range(r):
+    for j in range(s):
+        if i==0 or j==0 or i == (r-1) or j == (s-1): 
+            zbroj += matrica[i][j]
+print("Zbroj elemenata rubova matrice jeste: ", zbroj)
