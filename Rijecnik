@@ -1,19 +1,19 @@
-def prosjecna_ocjena(rjecnik):
-    prosjecne_ocjene = {}
-    
-    for student, ocjene in rjecnik.items():
-        prosjek = round(sum(ocjene) / len(ocjene))
-        
-        if prosjek in prosjecne_ocjene:
-            prosjecne_ocjene[prosjek].append(student)
-        else:
-            prosjecne_ocjene[prosjek] = [student]
-    
-    for ocjena in prosjecne_ocjene:
-        prosjecne_ocjene[ocjena].sort()
-    
-    return prosjecne_ocjene
+ocijene = {
+    'ivan': (3, 2, 4),
+    'marko': (5, 5, 4),
+    'ana': (2, 3, 4)
+}
 
-rijecnik = {'ivan': (3,2,4), 'marko': (5,5,4), 'ana': (2,3,4)}
-rezultat = prosjecna_ocjena(rijecnik)
-print(rezultat)
+nova = {}
+
+for ime, ocjene in ocijene.items():
+    prosjek = round(sum(ocjene) / len(ocjene), 2)
+    print(ime, "ima ocjene", ocjene, "i prosjek", prosjek)
+
+    if prosjek in nova:
+        nova[prosjek].append(ime)
+    else:
+        nova[prosjek] = [ime]
+
+print(nova)
+
