@@ -1,0 +1,30 @@
+import random
+
+def loto():
+    brojevi = random.sample(range(1, 42), 6)
+    return brojevi
+
+def brojevi_igraca(brojevi, igrac_brojevi):
+    brojac = 0
+    pogodak = []
+    for j in igrac_brojevi:
+        if j in brojevi:
+            pogodak.append(j)
+            brojac += 1
+    
+    return pogodak, brojac, igrac_brojevi
+
+a = loto()
+igrac_brojevi = [5, 8, 17, 21, 33, 42]
+pogodak, brojac, niz = brojevi_igraca(a, igrac_brojevi)
+
+print("Izvučeni brojevi:", a)
+print("Igračevi brojevi:", igrac_brojevi)
+print("Pogodili ste:", brojac)
+print("Brojevi koje ste pogodili:", pogodak)
+
+if len(pogodak) > 0:
+    print("Suma pogodenih:", sum(pogodak))
+    print("Maksimalno pogodeni broj:", max(pogodak))
+    print("Minimalno pogodeni broj:", min(pogodak))
+
