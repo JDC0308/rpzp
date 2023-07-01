@@ -1,0 +1,34 @@
+import math
+
+
+r = float(input("Unesite radijus kružnice: "))
+a = float(input("Unesite x-koordinatu središta kružnice: "))
+b = float(input("Unesite y-koordinatu središta kružnice: "))
+
+
+def provjeri_tocku_na_kruznici(x, y):
+    udaljenost = math.sqrt((x - a)**2 + (y - b)**2)
+    return math.isclose(udaljenost, r)
+
+
+broj_tocaka_na_kruznici = 0
+ukupni_broj_tocaka = 0
+
+
+while True:
+    x = float(input("Unesite x-koordinatu točke (ili 0 za izlaz): "))
+    y = float(input("Unesite y-koordinatu točke (ili 0 za izlaz): "))
+
+    if x == 0 and y == 0:
+        break
+
+    ukupni_broj_tocaka += 1
+
+    if provjeri_tocku_na_kruznici(x, y):
+        broj_tocaka_na_kruznici += 1
+
+
+omjer_pogodaka = (broj_tocaka_na_kruznici / ukupni_broj_tocaka) * 100
+
+
+print("Omjer pogodaka na kružnici: ",omjer_pogodaka,"%"))
